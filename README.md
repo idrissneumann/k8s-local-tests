@@ -40,6 +40,14 @@ helm repo update
 helm install cert-manager --namespace cert-manager  --version v0.12.0  jetstack/cert-manager
 kubectl get pods --namespace cert-manager
 kubectl create namespace cattle-system
-helm install rancher --namespace cattle-system --set hostname=rancher.my.org rancher-latest/rancher
-kubectl -n cattle-system rollout status deploy/rancher
+```
+
+From https://medium.com/@jyeee/rancher-2-3-on-macos-with-minikube-and-helm-e83d26fb9552
+
+```shell
+helm install rancher rancher-latest/rancher  --namespace cattle-system  --set hostname=rancher.localdev
+kubectl -n cattle-system get services
+kubectl -n cattle-system get pods
+kubectl -n cattle-system get ingresses # See the ip of rancher
+kubectl -n cattle-system exec -it rancher-59d9584c98-6vlvc -- bash # open a shell on one node
 ```
