@@ -20,3 +20,9 @@ kubectl cluster-info
 TOKEN=$(kubectl get secrets -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='default')].data.token}"|base64 --decode)
 curl https://0.0.0.0:51725/api -k -H "Authorization: Bearer ${TOKEN}"
 ```
+
+## Getting the cluster token
+
+```shell
+k3d cluster list --token
+```
