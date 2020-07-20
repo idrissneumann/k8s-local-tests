@@ -48,6 +48,6 @@ From https://medium.com/@jyeee/rancher-2-3-on-macos-with-minikube-and-helm-e83d2
 helm install rancher rancher-latest/rancher  --namespace cattle-system  --set hostname=rancher.localdev
 kubectl -n cattle-system get services
 kubectl -n cattle-system get pods
-kubectl -n cattle-system get ingresses # See the ip of rancher
+kubectl -n cattle-system get ingresses # See the ip of rancher, add the ip in your /etc/hosts with domain "rancher.localdev"
 kubectl -n cattle-system exec -it rancher-59d9584c98-6vlvc -- bash # open a shell on one node
 ```
