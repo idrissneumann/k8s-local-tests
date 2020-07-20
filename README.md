@@ -7,7 +7,13 @@ brew install k3d
 brew install helm
 ```
 
-## Create a cluster
+### Remove the cluster
+
+```shell
+k3d cluster delete localdev
+```
+
+### Create a cluster
 
 ```shell
 k3d cluster create localdev --api-port 6550 -p 980:80@loadbalancer -p 9443:443@loadbalancer --servers 1 --agents 1
@@ -56,6 +62,13 @@ kubectl -n cattle-system get pods
 kubectl -n cattle-system get ingresses # See the internal ip of rancher
 kubectl -n cattle-system exec -it rancher-59d9584c98-6vlvc -- bash # open a shell on one node
 ```
+
+### Uninstall rancher
+
+```shell
+helm uninstall rancher --namespace cattle-system
+```
+
 
 # Tekton
 
