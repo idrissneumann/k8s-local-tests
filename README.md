@@ -10,7 +10,7 @@ brew install helm
 ### Remove the cluster
 
 ```shell
-k3d cluster delete localdev
+k3d cluster delete localdevr
 ```
 
 ### Create a cluster
