@@ -74,6 +74,8 @@ helm uninstall rancher --namespace cattle-system
 
 # Tekton
 
+## Installation
+
 From https://github.com/tektoncd/pipeline/blob/master/docs/install.md#installing-tekton-pipelines-on-kubernetes
 
 ```bash
@@ -86,4 +88,13 @@ kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline
 kubectl -n tekton-pipelines get pods -w # wait until they are running 
 kubectl -n tekton-pipelines apply --filename https://github.com/tektoncd/dashboard/releases/download/v0.2.0/release.yaml
 kubectl -n tekton-pipelines get pods -w # wait until they are running
+```
+
+## First task
+
+```bash
+kubectl -n tekton-pipelines apply -f tekton/hello-world-task.yaml
+tkn -n tekton-pipelines task describe echo-hello-world
+tkn -n tekton-pipelines task start echo-hello-world
+tkn -n tekton-pipelines task logs echo-hello-world
 ```
