@@ -46,8 +46,8 @@ kubectl create namespace cert-manager
 kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
 helm repo add jetstack https://charts.jetstack.io
 helm repo update
-helm install cert-manager --namespace cert-manager  --version v0.12.0  jetstack/cert-manager
-kubectl get pods --namespace cert-manager
+helm install cert-manager --namespace cert-manager --version v0.12.0  jetstack/cert-manager
+kubectl -n cert-manager get pods -w # wait until they are running
 ```
 
 ### Rancher
