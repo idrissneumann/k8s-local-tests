@@ -56,7 +56,7 @@ From https://medium.com/@jyeee/rancher-2-3-on-macos-with-minikube-and-helm-e83d2
 
 ```shell
 kubectl create namespace cattle-system
-helm install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher.localdev
+helm install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher.localdevr
 kubectl -n cattle-system get pods -w # wait until they are running 
 kubectl -n cattle-system get services
 kubectl -n cattle-system describe pods # Show status of creating containers (pulling images, etc)
