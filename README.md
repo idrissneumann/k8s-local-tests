@@ -57,8 +57,8 @@ From https://medium.com/@jyeee/rancher-2-3-on-macos-with-minikube-and-helm-e83d2
 ```shell
 kubectl create namespace cattle-system
 helm install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher.localdev
+kubectl -n cattle-system get pods -w # wait until they are running 
 kubectl -n cattle-system get services
-kubectl -n cattle-system get pods
 kubectl -n cattle-system describe pods # Show status of creating containers (pulling images, etc)
 kubectl -n cattle-system get ingresses # See the internal ip of rancher
 kubectl -n cattle-system exec -it rancher-59d9584c98-6vlvc -- bash # open a shell on one node
@@ -78,5 +78,5 @@ From https://github.com/tektoncd/pipeline/blob/master/docs/install.md#installing
 
 ```bash
 kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
-kubectl get pods --namespace tekton-pipelines --watch
+kubectl -n tekton-pipelines get pods -w # wait until they are running 
 ```
