@@ -64,12 +64,13 @@ kubectl -n cattle-system get ingresses # See the internal ip of rancher
 kubectl -n cattle-system exec -it rancher-59d9584c98-6vlvc -- bash # open a shell on one node
 ```
 
+Rancher will be available [here](https://localhost:9443) URL
+
 ### Uninstall rancher
 
 ```shell
 helm uninstall rancher --namespace cattle-system
 ```
-
 
 # Tekton
 
