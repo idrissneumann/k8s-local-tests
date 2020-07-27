@@ -76,8 +76,14 @@ helm uninstall rancher --namespace cattle-system
 
 From https://github.com/tektoncd/pipeline/blob/master/docs/install.md#installing-tekton-pipelines-on-kubernetes
 
+```bash
+brew tap tektoncd/tools
+brew install tektoncd/tools/tektoncd-cli
+```
 
 ```bash
 kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 kubectl -n tekton-pipelines get pods -w # wait until they are running 
+kubectl -n tekton-pipelines apply --filename https://github.com/tektoncd/dashboard/releases/download/v0.2.0/release.yaml
+kubectl -n tekton-pipelines get pods -w # wait until they are running
 ```
