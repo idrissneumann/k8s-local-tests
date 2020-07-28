@@ -98,3 +98,14 @@ tkn -n tekton-pipelines task describe echo-hello-world
 tkn -n tekton-pipelines task start echo-hello-world
 tkn -n tekton-pipelines task logs echo-hello-world
 ```
+
+## Git task
+
+```bash
+kubectl -n tekton-pipelines apply -f tekton/git-resources-test.yaml
+kubectl -n tekton-pipelines apply -f tekton/git-task-test.yaml
+tkn -n tekton-pipelines task describe git-task-test
+tkn -n tekton-pipelines task start git-task-test
+# push some updates in this repo
+tkn -n tekton-pipelines task logs git-task-test
+```
