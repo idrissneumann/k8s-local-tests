@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: git-task-test
+  namespace: tekton-pipelines
+spec:
+  resources:
+    inputs:
+      - name: git-test
+        type: git
+  steps:
+    - name: ls
+      image: ubuntu
+      command: ["ls"]
+      args: ["-l"]

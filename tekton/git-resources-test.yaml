@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: git-test
+  namespace: tekton-pipelines
+spec:
+  type: git
+  params:
+    - name: url
+      value: https://github.com/idrissneumann/k8s-local-tests.git
+    - name: revision
+      value: master
